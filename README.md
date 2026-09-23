@@ -1,6 +1,6 @@
-# sesac-4th-corp-rfp
 
-새싹 4기 기업 연계 프로젝트(막지 × Cafe24) 저장소입니다. MVP 앱인 **막지 스톡(MAKJI Bread Market)** 과 기획 자료가 함께 들어 있습니다.
+# MakjiStock
+MVP 앱인 **막지 스톡(MAKJI Bread Market)** 과 기획 자료가 함께 들어 있습니다.
 
 ## 프로젝트 구성
 
