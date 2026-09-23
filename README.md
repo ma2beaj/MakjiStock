@@ -1,11 +1,11 @@
 
 # MakjiStock
-MVP 앱인 **막지 스톡(MAKJI Bread Market)** 과 기획 자료가 함께 들어 있습니다.
+MVP 앱인 **막지 스톡(MAKJI-STOCK)** 과 기획 자료가 함께 들어 있습니다.
 
 ## 프로젝트 구성
 
 ```text
-sesac-4th-corp-rfp/
+MakjiStock
 ├── README.md                          # 이 문서
 ├── docs/                              # 설계·구현 계획 문서
 │   ├── 기업_요구사항.md
