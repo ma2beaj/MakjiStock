@@ -1,0 +1,25 @@
+node_modules/
+.next/
+/out/
+dist/
+
+.env
+.env.local
+.env*.local
+
+backtest/output/
+artifacts/
+
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+
+.omc/
+.omx/
+.vercel/
+
+# 가격 입력 도착 시각 측정 로그 (scripts/price-input-probe.mjs)
+price-input-lag.tsv
+.vercel
+.env*
+!.env.example

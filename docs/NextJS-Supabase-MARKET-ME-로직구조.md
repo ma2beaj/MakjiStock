@@ -34,6 +34,8 @@
 
 원본 `boot()`는 앱 전체 기능을 한꺼번에 렌더링한다. MARKET·ME만 남긴 실서비스의 의존 순서는 다음과 같다.
 
+> **현행 구현과 다름 (2026-09-23 대조)** — 지정가 알림·할인율 1위 예측·이메일 쿠폰은 없어졌고, 예측은 상품별 up/down, 가격 잠금과 하루 2회 세션이 추가됐다. 현재 동작: [A3 코드 모듈 의존도](diagrams/01-architecture.md#a3-코드-모듈-의존도) · [F5 예측 판정과 보상](diagrams/04-flowcharts.md#f5-예측-판정과-보상)
+
 ```text
 상품 기준정보
   ↓
@@ -207,6 +209,8 @@ GET /api/products/{productId}?historyDays=14
 
 브라우저가 Cafe24 URL로 직접 이동하지 않고 서버 리다이렉트를 거친다.
 
+> **현행 구현과 다름 (2026-09-23 대조)** — 지금은 `click_id`·`purchase_link_click` 기록 없이 이동만 하고, 목적지는 `SHOP_TARGET`(demo/live)에 따라 정한다. 현재 동작: [S8 구매 이동](diagrams/03-sequences.md#s8-구매-이동-apioutcafe24productid)
+
 ```text
 구매 버튼 클릭
 → GET /api/out/cafe24/{productId}
@@ -328,6 +332,8 @@ GET /api/me?predictionLimit=30
 ME에서 `renderDogam()`, 씰 통계·진척도, `renderCoupons()` 기반 앱 내부 쿠폰함은 제거한다. `renderAlerts()`와 `renderPreds()`에 대응하는 데이터, 적중자 쿠폰 이메일 수령 상태만 남긴다.
 
 ### 3.8 오전 5시·오전 6시·오후 4시 서버 작업
+
+> **현행 구현과 다름 (2026-09-23 대조)** — 정가 복귀는 02:00 별도 크론, 오전 산정은 05시대(누락 시 06~10시 5회 재시도), 오후 산정은 15시대이며 잠금 차액 코드를 발급한다. 지정가 알림은 없고, 예측 회차는 첫 제출 때 만든다. 현재 동작: [S2](diagrams/03-sequences.md#s2-오전-가격-산정-05시대-onlyifmissing1-재시도-포함) · [S3](diagrams/03-sequences.md#s3-오후-가격-산정과-잠금-차액-코드-발급) · [S4](diagrams/03-sequences.md#s4-0200-정가-복귀)
 
 ```text
 05:00 Cafe24 판매가를 기준가로 복귀하고 정가 세션 공개
